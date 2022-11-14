@@ -1,0 +1,14 @@
+/* コンテナ
+------------------------------------------------------ */
+@use "../abstracts/variables.scss" as val;
+@use "../abstracts/mixins.scss" as mix;
+.container {
+    max-width: val.$width;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 20px;
+    padding-left: 20px;
+    &._narrow {
+        max-width: 940px;
+    }
+}

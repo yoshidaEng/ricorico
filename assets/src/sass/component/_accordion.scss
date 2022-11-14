@@ -1,0 +1,44 @@
+/* アコーディオン
+------------------------------------------------------ */
+@use "../abstracts/variables.scss" as val;
+@use "../abstracts/mixins" as mixin;
+
+.accordion {
+    position: relative;
+    width: 100%;
+    .accordionList {
+        margin-right: -20px;
+        margin-left: -20px;
+        overflow: hidden;
+        & + .accordionList {
+            margin-top: 20px;
+        }
+        .accordionList__trigger {
+            position: relative;
+            cursor: pointer;
+            &:focus-visible {
+            border: 1px solid #333; // tabキーで移動してきたときのスタイル
+            }
+
+        }
+        .accordionList__content {
+            transition: 0.4s;
+        }
+        &.is-hide {
+
+            .accordionList__content {
+                transition: 0.4s;
+            }
+        }
+    }
+}
+
+@include mixin.medium {
+    .accordion {
+        .accordionList {
+            & + .accordionList {
+                margin-top: 30px;
+            }
+        }
+    }
+}

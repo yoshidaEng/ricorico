@@ -1,0 +1,38 @@
+/* アクセス
+------------------------------------------------------ */
+@use  "../abstracts/mixins.scss" as mix;
+@use  "../abstracts/variables.scss" as val;
+.access {
+    display: flex;
+    flex-direction: column-reverse;
+    &__list {
+        margin-top: 30px;
+        padding: 0;
+        padding: 30px 0;
+        border-top: 1px dashed val.$cText;
+        border-bottom: 1px dashed val.$cText;
+        color: val.$cText;
+        list-style: none;
+    }
+    &__item:not(:first-child) {
+        margin-top: 5px;
+    }
+    &__item._tel {
+        text-transform: uppercase;
+    }
+}
+@include mix.medium {
+    .access {
+        flex-direction: row-reverse;
+        &__list {
+            flex-grow: 1;
+            margin-top: 0;
+        }
+        &__ph {
+            flex-shrink: 0;
+            width: calc((585/1170)*100%);
+            height: auto;
+            margin-right: calc((100/1170)*100%);
+        }
+    }
+}

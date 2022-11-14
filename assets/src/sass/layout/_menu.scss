@@ -1,0 +1,145 @@
+/* グローバルメニュー
+------------------------------------------------------ */
+@use "../abstracts/mixins.scss" as mixin;
+@use "../abstracts/variables.scss" as val;
+.menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 130px;
+    padding-right: 20px;
+    padding-left: 20px;
+    text-align: center;
+    opacity: 0;
+    z-index: val.$ziMenu;
+    &__inner {
+        width: 100%;
+        height: 100%;
+    }
+    &__list {
+        padding: 0;
+        list-style: none;
+        z-index: val.$ziMenu;
+    }
+    &__item {
+        padding: 15px 0;
+        border-bottom: 1px dashed val.$cText;
+        &:first-child {
+            border-top: 1px dashed val.$cText;
+        }
+    }
+    &__link {
+        display: inline-block;
+        transition: color 180ms linear;
+        color: val.$cText;
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: none;
+        cursor: pointer;
+        &:hover {
+            color: #847F3F;
+        }
+    }
+    &__logo {
+        margin-top: 50px;
+        img {
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+}
+/*メニューを閉じる*/
+.menu[aria-hidden="true"] {
+    right: -100%;
+    opacity: 0;
+}
+/*メニューを開く*/
+.menu[aria-hidden="false"] {
+    right: 0;
+    opacity: 1;
+}
+/*メニューリストアニメーション*/
+.menu[aria-hidden="false"] {
+    & .menu__item {
+        opacity: 0;
+        @include mixin.animation(
+            $name: animateMenuList,
+            $duration: 900ms,
+            $delay: 120ms,
+            $fill-mode: forwards,
+        )
+    }
+}
+
+/*ロゴアニメーション*/
+.menu[aria-hidden="false"] {
+    & .menu__logo {
+        @include mixin.animation($name: logoAnimation,
+            $duration: 900ms,
+            $fill-mode: forwards,)
+    }
+}
+
+/*テキストアニメーション*/
+.menu__list._inview {
+    & .char {
+        display: inline-block;
+
+        @include mixin.animation(
+            $name: animateChars,
+            $timing-function: ease-in-out,
+            $fill-mode: both
+        );
+
+        @for $i from 1 through 20 {
+            &:nth-child(#{$i}) {
+                animation-delay: $i * 0.01s;
+            }
+        }
+    }
+}
+
+/*キーフレーム*/
+@keyframes animateMenuList {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes animateChars {
+    from {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes logoAnimation {
+    from {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@include mixin.medium {
+    .menu {
+        width: 50%;
+        &__item {
+            border-bottom: none;
+            &:first-child {
+                border-top: none;
+            }
+        }
+    }
+}

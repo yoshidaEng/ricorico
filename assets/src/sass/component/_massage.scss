@@ -1,0 +1,23 @@
+/* 送信完了メッセージ
+------------------------------------------------------ */
+@use "../abstracts/variables" as val;
+.message {
+    margin-right: -20px;
+    margin-left: -20px;
+    padding: 60px;
+    background-color: val.$cKey4;
+    text-align: center;
+    &__title {
+        color: val.$cText;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    &__text {
+        margin-top: 30px;
+        color: val.$cText;
+        p + p {
+            margin-top: 20px;
+        }
+    }
+
+}

@@ -1,0 +1,30 @@
+/* トップページ ポストリスト
+------------------------------------------------------ */
+@use "../abstracts/variables" as val;
+.verticalPosts {
+    padding: 0;
+    list-style: none;
+    &__header {
+        display: flex;
+        align-items: center;
+        & time {
+            margin-right: 30px;
+            color: val.$cText;
+        }
+    }
+    &__item {
+        padding: 20px 0;
+        border-bottom: 1px solid val.$cGray;
+        &:first-child {
+            border-top: 1px solid val.$cGray;
+        }
+    }
+    &__link {
+        display: block;
+        margin-top: 10px;
+        color: val.$cText;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+}

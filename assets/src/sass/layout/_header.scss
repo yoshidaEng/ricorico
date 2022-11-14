@@ -1,0 +1,42 @@
+/* ヘッダー
+------------------------------------------------------ */
+@use "../abstracts/variables" as val;
+@use "../abstracts/mixins.scss" as mix;
+.header {
+    width: 100%;
+    height: 90px;
+    padding: 15px;
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+    }
+    &__logo {
+        width: 100px;
+        height: 60px;
+    }
+    &._fixed {
+        position: fixed;
+        background-color: transparent;
+        z-index: 1;
+        & .header__logo {
+            z-index: val.$ziLogo;
+        }
+    }
+}
+
+@include mix.medium {
+    .header {
+        height: 130px;
+        &__inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        &__logo {
+            width: 173px;
+            height: 100px;
+        }
+    }
+}

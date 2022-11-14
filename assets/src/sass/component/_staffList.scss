@@ -1,0 +1,23 @@
+
+/* ねこスタッフ紹介
+------------------------------------------------------ */
+@use "../abstracts/mixins.scss" as mix;
+@use "../abstracts/variables.scss" as val;
+.staffList {
+    display: grid;
+    padding: 0;
+    list-style: none;
+    gap: 20px;
+}
+
+@include mix.medium {
+    .staffList {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@include mix.large {
+    .staffList {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

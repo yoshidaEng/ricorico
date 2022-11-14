@@ -1,0 +1,91 @@
+@use "../abstracts/variables.scss" as val;
+@use "../abstracts/mixins.scss" as mix;
+/* ボタン
+------------------------------------------------------ */
+.btn {
+    display: inline-block;
+    transition: 0.3s all;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    &--round {
+        min-width: 195px;
+        padding: 0.7em 0em;
+        transition: background-color 180ms linear;
+        border: 1px solid val.$cText;
+        border-radius: 2em;
+        background-color: val.$cWhite;
+        color: val.$cText;
+        &:hover {
+            background-color: #DBC980;
+        }
+    }
+    &--square {
+        max-width: 405px;
+        padding: 25px 10px;
+        border: 1px solid val.$cText;
+        border-radius: 5px;
+        color: val.$cText;
+        font-size: 21px;
+        font-weight: bold;
+    }
+    &--submit {
+        transition: background-color 180ms linear;
+        border: 0;
+        background-color: #CEB967;
+        color: val.$cWhite;
+        &:hover {
+            background-color: #DECB7D;
+        }
+    }
+    &--transparent {
+        min-width: 195px;
+        padding: 0.7em 0em;
+        transition: background-color 180ms linear;
+        border: 1px solid val.$cWhite;
+        border-radius: 2em;
+        background-color: transparent;
+        color: val.$cWhite;
+        &:hover {
+            background-color: #DBC980;
+        }
+    }
+    &--large {
+        min-width: 260px;
+    }
+    //アイコン
+    &--next {
+        &::after {
+            display: inline-block;
+            width: 0.7em;
+            height: 0.7em;
+            margin-left: 0.2em;
+            transform: rotate(45deg);
+            border-top: 2px solid;
+            border-right: 2px solid;
+            content: "";
+            vertical-align: middle;
+        }
+    }
+    &--back {
+        &::before {
+            display: inline-block;
+            width: 0.57em;
+            height: 0.57em;
+            margin-right: 0.2em;
+            transform: rotate(-135deg);
+            border-top: 2px solid;
+            border-right: 2px solid;
+            content: "";
+            vertical-align: middle;
+        }
+    }
+}
+
+.btnCenter {
+    margin-top: 80px;
+    text-align: center;
+}
+
+
+

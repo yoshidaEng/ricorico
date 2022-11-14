@@ -1,0 +1,23 @@
+/* スクロールアニメーション
+------------------------------------------------------ */
+@use "../abstracts/mixins" as mixin;
+.is-fade_in {
+    opacity: 0;
+}
+.is-fade_in.is-fade_in--active {
+    @include mixin.animation(
+        $name: fade-in-up,
+        $duration: 480ms,
+        $fill-mode: forwards,
+        )
+}
+@keyframes fade-in-up {
+    from {
+        transform: translateY(15px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

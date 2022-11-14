@@ -1,0 +1,32 @@
+/* お問い合わせフォーム
+------------------------------------------------------ */
+@use "../abstracts/variables" as val;
+.contact {
+    margin-top: -1px;
+    padding: 30px 0;
+    border-top: 1px dashed val.$cText;
+    border-bottom: 1px dashed val.$cText;
+}
+
+/*入力エリア*/
+.inputField {
+    margin-top: 20px;
+}
+
+/*ラベル*/
+.inputLabel {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/*必須ラベル*/
+.require {
+    display: inline-block;
+    margin-left: 30px;
+    padding: 0 15px;
+    background: val.$cRed1;
+    color: #fff;
+    font-size: 12px;
+    font-weight: normal;
+    vertical-align: middle;
+}

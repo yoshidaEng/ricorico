@@ -1,0 +1,65 @@
+/* メニューアイコン
+------------------------------------------------------ */
+@use "../abstracts/mixins.scss" as mix;
+@use "../abstracts/variables.scss" as val;
+.menuBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    padding-top: 15px;
+    transition: background-color 180ms linear;
+    border: 0;
+    border-radius: 50%;
+    background-color: val.$cKey2;
+    color: val.$cWhite;
+    cursor: pointer;
+    z-index: val.$ziMenuBtn;
+    &:hover,
+    &:focus-visible {
+        background-color: #DBCC14;
+    }
+    &__line {
+        position: relative;
+        width: 35px;
+        height: 2px;
+        background-color: #fff;
+    }
+    &__line::before,
+    &__line::after {
+        display: block;
+        position: absolute;
+        width: 35px;
+        height: 2px;
+        transition: transform 0.3s;
+        background-color: #fff;
+        content: "";
+    }
+    &__line::before {
+        top: -9px;
+    }
+    &__line::after {
+        bottom: -9px;
+    }
+    &__text {
+        margin-top: 12px;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+}
+
+/*close*/
+.menuBtn[aria-expanded="true"] .menuBtn__line {
+    background: transparent;
+}
+.menuBtn[aria-expanded="true"] .menuBtn__line::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+.menuBtn[aria-expanded="true"] .menuBtn__line::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+

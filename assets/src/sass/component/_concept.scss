@@ -1,0 +1,8 @@
+/* コンセプト文
+------------------------------------------------------ */
+@use "../abstracts/mixins.scss" as mix;
+.concept {
+    p + p {
+        margin-top: 40px;
+    }
+}

@@ -1,0 +1,16 @@
+/* リード文
+------------------------------------------------------ */
+@use "../abstracts/mixins.scss" as mix;
+.pageLead {
+    text-align: center;
+    & + * {
+        margin-top: 60px;
+    }
+}
+@include mix.medium {
+    .pageLead {
+        & + * {
+            margin-top: 100px;
+        }
+    }
+}

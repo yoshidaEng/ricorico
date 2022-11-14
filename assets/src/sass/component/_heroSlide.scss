@@ -1,0 +1,91 @@
+/* スライダー
+------------------------------------------------------ */
+@use "../abstracts/mixins" as mix;
+.heroSlide {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    //jsで高さを取得し--vhに代入
+    min-height: calc(var(--vh, 1vh) * 100);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    &__item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        span {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            opacity: 0;
+            animation: slide 27s ease infinite;
+        }
+        &:nth-child(1) {
+            span {
+                background-image: url(../images/hero_mobile_01@3x.jpg);
+                animation-delay: 0s;
+            }
+        }
+        &:nth-child(2) {
+            span {
+                background-image: url(../images/hero_mobile_02@3x.jpg);
+                animation-delay: 9s;
+            }
+        }
+        &:nth-child(3) {
+            span {
+                background-image: url(../images/hero_mobile_04@3x.jpg);
+                animation-delay: 18s;
+            }
+        }
+    }
+}
+
+@keyframes slide {
+    0% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+    16% {
+        opacity: 1;
+    }
+    33.3% {
+        opacity: 1;
+    }
+    49% {
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1.00);
+        opacity: 0;
+    }
+}
+
+@include mix.medium {
+    .heroSlide {
+        &__item {
+            &:nth-child(1) {
+                span {
+                    background-image: url(../images/hero_tab_01@2x.jpg);
+                }
+            }
+            &:nth-child(2) {
+                span {
+                    background-image: url(../images/hero_tab_02@2x.jpg);
+                }
+            }
+            &:nth-child(3) {
+                span {
+                    background-image: url(../images/hero_tab_03@2x.jpg);
+                }
+            }
+        }
+    }
+}

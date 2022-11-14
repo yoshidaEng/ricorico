@@ -1,0 +1,32 @@
+/* ぬこスタッフ
+------------------------------------------------------ */
+@use "../abstracts/variables.scss" as val;
+.catStaff {
+    padding: 20px;
+    border-radius: 1em;
+    background: #fff;
+    list-style: none;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.16);
+    &__body {
+        padding: 20px;
+        text-align: center;
+    }
+    &__thumb {
+        img {
+            width: 100%;
+            max-width: none;
+            border-radius: 1em;
+        }
+    }
+    &__name {
+        color: val.$cText;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    &__sex {
+        margin-top: 20px;
+        color: val.$cText;
+        font-size: 20px;
+        font-weight: bold;
+    }
+}

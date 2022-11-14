@@ -1,0 +1,43 @@
+/* フッターメニュー
+------------------------------------------------------ */
+@use "../abstracts/variables.scss" as val;
+@use "../abstracts/mixins.scss" as mix;
+.footerMenu {
+    padding: 0 20px;
+    list-style: none;
+    text-align: center;
+    &__item {
+        padding: 15px 0;
+        border-bottom: 1px dashed val.$cWhite;
+    }
+    &__item:first-child {
+        border-top: 1px dashed val.$cWhite;
+    }
+    &__link {
+        display: inline-block;
+        color: val.$cWhite;
+        font-size: 14px;
+        text-decoration: none;
+    }
+}
+
+@include mix.medium {
+    .footerMenu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: -60px;
+        &__item {
+            margin-top: 60px;
+            padding: 0 15px;
+            border-bottom: none;
+            border-left: 1px solid #fff;
+        }
+        &__item:first-child {
+            border-top: none;
+        }
+        &__item:last-child {
+            border-right: 1px solid #fff;
+        }
+    }
+}

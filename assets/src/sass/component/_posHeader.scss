@@ -1,0 +1,14 @@
+/* 投稿記事 ヘッダー
+------------------------------------------------------ */
+.postHeader {
+    &__date {
+        margin-right: 30px;
+    }
+    &__title {
+        font-size: 40px;
+        font-weight: bold;
+    }
+    &__snsContents {
+        margin-top: 25px;
+    }
+}

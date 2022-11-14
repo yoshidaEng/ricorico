@@ -1,0 +1,37 @@
+/*----------------------------------------
+base
+----------------------------------------*/
+@use "../abstracts/variables" as val;
+html {
+  scroll-behavior: smooth;
+}
+body {
+  // color:val.$c_text;
+  font-family: "Noto Sans CJK JP", "'Noto Sans JP'", sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+h1,h2,h3,h4,h5,h6 {
+  color: val.$cText;
+  line-height: 1.7;
+}
+
+a {
+  transition: all 0.3s;
+  // color: val.$c_link;
+  text-decoration: underline;
+}
+// a:hover {
+//   opacity: 0.7;
+//   color: val.$c_hover;
+// }
+
+button {
+  display: block;
+  width: 100%;
+  border: 0;
+  font-family: inherit;
+  font-weight: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+}

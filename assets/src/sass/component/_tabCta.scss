@@ -1,0 +1,65 @@
+/* PC用クリック誘導
+------------------------------------------------------ */
+@use "../abstracts/variables.scss" as val;
+@use "../abstracts/mixins.scss" as mix;
+.tabCta {
+    display: none;
+}
+
+@include mix.medium {
+    .tabCta {
+        display: block;
+        height: 350px;
+        &__inner {
+            display: grid;
+            height: 100%;
+            gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        &__item {
+            display: grid;
+            align-items: center;
+            border-radius: 30px;
+            justify-items: center;
+            &._enjoy {
+                background: url(../images/bg_btn_tab_01.jpg) no-repeat center center / cover;
+            }
+            &._staff {
+                background: url(../images/bg_btn_tab_02.jpg) no-repeat center center / cover;
+            }
+        }
+        &__contents {
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            gap: 40px;
+        }
+        &__title {
+            color: val.$cWhite;
+            font-size: 24px;
+        }
+        &__btn {
+            .btn {
+                border: 1px solid #ffffff;
+                background-color: transparent;
+                color: val.$cWhite;
+            }
+            .btn--arrow::before {
+                border-top: 3px solid #ffffff;
+                border-right: 3px solid #FFFFFF;
+            }
+            .btn--arrow::after {
+                background-color: #ffffff;
+            }
+        }
+
+    }
+}
+
+@include mix.large {
+    .tabCta {
+        &__title {
+            font-size: 30px;
+        }
+    }
+}

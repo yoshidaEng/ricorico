@@ -1,0 +1,99 @@
+/* アコーディオン内部
+------------------------------------------------------ */
+@use "../abstracts/variables.scss" as val;
+@use "../abstracts/mixins" as mixin;
+.faq {
+    /*質問*/
+    &__question {
+        display: flex;
+        align-items: center;
+        padding: 15px 10px;
+        background-color: #F7F4E9;
+        font-weight: bold;
+    }
+    &__qIcon {
+        flex-shrink: 0;
+        color: val.$cKey1;
+        font-size: 30px;
+        line-height: 1;
+        vertical-align: middle;
+    }
+    &__qText {
+        flex-grow: 1;
+        margin-right: 15px;
+        margin-left: 15px;
+        color: val.$cText;
+    }
+    &__action {
+        display: block;
+        position: relative;
+        width: 20px;
+        height: 20px;
+        margin-left: auto;
+        &::before,
+        &::after {
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 0;
+            margin: auto;
+            transition: all .3s;
+            border-top: 1px solid;
+            content: "";
+        }
+        &::after {
+            transform: rotate(90deg);
+            .accordionList__trigger[aria-expanded="true"] & {
+                transform: rotate(0);
+            }
+        }
+
+    }
+    @include mixin.medium {
+        .faq {
+            &__question {
+                padding: 15px 20px;
+            }
+            &__qIcon {
+                font-size: 40px;
+            }
+            &__qText {
+                font-size: 18px;
+            }
+            &__action {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    }
+
+    /*回答*/
+    &__answer {
+        display: flex;
+        padding: 20px;
+    }
+    &__aIcon {
+        flex-shrink: 0;
+        color: val.$cKey1;
+        font-size: 30px;
+        font-weight: bold;
+        line-height: 1;
+        vertical-align: middle;
+    }
+    &__aText {
+        margin-left: 20px;
+        color: val.$cText;
+    }
+    @include mixin.medium {
+        .faq {
+            &__aIcon {
+                font-size: 40px;
+            }
+            &__aText {
+                font-size: 18px;
+            }
+        }
+    }
+}

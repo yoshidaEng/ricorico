@@ -1,0 +1,40 @@
+/* スマホ用クリック誘導
+------------------------------------------------------ */
+@use "../abstracts/variables.scss" as val;
+@use "../abstracts/mixins.scss" as mix;
+.mobileCta {
+    height: 150px;
+    margin-right: -20px;
+    margin-left: -20px;
+    &__inner {
+        display: grid;
+        align-items: center;
+        height: 150px;
+        justify-items: center;
+    }
+    &__contents {
+        display: grid;
+        place-items: center;
+        gap: 20px;
+    }
+    &__title {
+        color: val.$cWhite;
+        font-size: 16px;
+    }
+    & + .mobileCta {
+        margin-top: 40px;
+    }
+    &._enjoy {
+        background: url(../images/bg_btn_mobile_01.jpg) no-repeat center center / cover;
+    }
+    &._staff {
+        background: url(../images/bg_btn_mobile_02.jpg) no-repeat center center / cover;
+    }
+
+}
+
+@include mix.medium {
+    .mobileCta {
+        display: none;
+    }
+}

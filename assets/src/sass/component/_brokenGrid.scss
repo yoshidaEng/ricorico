@@ -1,0 +1,79 @@
+/* ブロークングリッド
+------------------------------------------------------ */
+@use "../abstracts/variables.scss" as val;
+@use "../abstracts/mixins.scss" as mix;
+.brokenGrid {
+    display: flex;
+    flex-direction: column-reverse;
+    & + .brokenGrid {
+        margin-top: 80px;
+    }
+    &__body {
+        margin-right: -20px;
+        padding: 30px 20px;
+        background-color: val.$cKey4;
+    }
+    &__title {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    &__text {
+        margin-top: 30px;
+        text-align: left;
+    }
+    &__btn {
+        margin-top: 30px;
+        text-align: center;
+    }
+    &__ph {
+        margin-right: -20px;
+        margin-left: -20px;
+    }
+}
+
+/*反転*/
+.brokenGrid._reverse {
+    .brokenGrid__body {
+        margin-right: 0;
+        margin-left: -20px;
+    }
+}
+
+@include mix.medium {
+    .brokenGrid {
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 180px;
+        background-color: val.$cKey4;
+        &__body {
+            flex-shrink: 0;
+            width: 50%;
+            margin: 0;
+            padding: 45px;
+            background-color: transparent;
+        }
+        &__ph {
+            flex-grow: 1;
+            margin: 0;
+            margin-left: calc(50% - 50vw);
+            transform: translateY(-80px);
+        }
+        & + .brokenGrid {
+            margin-top: 180px;
+        }
+    }
+
+    /*反転*/
+    .brokenGrid._reverse {
+        flex-direction: row;
+        &__body {
+            background-color: transparent;
+        }
+        &__ph {
+            margin: 0;
+            margin-right: calc(50% - 50vw);
+        }
+
+    }
+}
